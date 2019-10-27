@@ -11,6 +11,8 @@ public interface SubjectService {
 
     Subject getExist(UUID subjectId);
 
+    Subject getByName(String subjectName);
+
     Page<Subject> findAll(Pageable pageable);
 
     String delete(UUID subjectId);

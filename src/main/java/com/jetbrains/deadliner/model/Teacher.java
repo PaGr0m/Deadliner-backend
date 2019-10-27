@@ -11,15 +11,20 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "subject")
-public class Subject {
+@Table(name = "teacher")
+public class Teacher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private UUID id;
 
-    @NonNull
-    @Column(name = "name", unique=true)
-    private String name;
+    @Column(name = "fio")
+    private String fio;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "contact")
+    private String contact;
 }

@@ -24,9 +24,10 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public Subject create(Subject subject) {
-        return subjectRepository.save(Subject.builder()
-                                             .name(subject.getName())
-                                             .build());
+        return subjectRepository.save(
+                Subject.builder()
+                       .name(subject.getName())
+                       .build());
     }
 
     @Override
@@ -37,6 +38,11 @@ public class SubjectServiceImpl implements SubjectService {
             return subject.get();
         else
             throw new EntityNotFoundException(Subject.class, "Subject not found");
+    }
+
+    @Override
+    public Subject getByName(String subjectName) {
+        return subjectRepository.getByName(subjectName);
     }
 
     @Override

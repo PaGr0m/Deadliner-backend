@@ -1,13 +1,12 @@
 package com.jetbrains.deadliner.repository;
 
-import com.jetbrains.deadliner.model.Subject;
+import com.jetbrains.deadliner.model.Teacher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 @Repository
-public interface SubjectRepository extends JpaRepository<Subject, UUID> {
+public interface TeacherRepository extends JpaRepository<Teacher, UUID> {
 
-    Subject getByName(String subjectName);
 }
