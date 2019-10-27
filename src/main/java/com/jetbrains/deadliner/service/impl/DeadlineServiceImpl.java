@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -27,6 +27,7 @@ public class DeadlineServiceImpl implements DeadlineService {
     @Transactional
     public Deadline create(Deadline deadline) {
         return deadlineRepository.save(Deadline.builder()
+                                               .name(deadline.getName())
                                                .description(deadline.getDescription())
                                                .dateTimeStart(deadline.getDateTimeStart())
                                                .dateTimeFinish(deadline.getDateTimeFinish())
@@ -34,7 +35,7 @@ public class DeadlineServiceImpl implements DeadlineService {
     }
 
     @Override
-//    @Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public Deadline getExist(UUID uuid) {
         Optional<Deadline> deadline = deadlineRepository.findById(uuid);
         if (deadline.isPresent())
@@ -44,7 +45,7 @@ public class DeadlineServiceImpl implements DeadlineService {
     }
 
     @Override
-//    @Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public Page<Deadline> findAll(Pageable pageable) {
         return deadlineRepository.findAll(pageable);
     }

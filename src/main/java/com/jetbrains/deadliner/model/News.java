@@ -12,16 +12,13 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "deadline")
-public class Deadline {
+@Table(name = "news")
+public class News {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private UUID id;
-
-    @Column(name = "name")
-    private String name;
 
     @Column(name = "description")
     private String description;
@@ -31,8 +28,4 @@ public class Deadline {
 
     @Column(name = "date_time_finish")
     private LocalDateTime dateTimeFinish;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "subject_id", nullable = false)
-    private Subject subject;
 }

@@ -30,6 +30,11 @@ public class SubjectController {
         return subjectService.getExist(subjectId);
     }
 
+    @GetMapping("/{subjectName}")
+    public Subject getByName(@PathVariable("subjectName") String subjectName) {
+        return subjectService.getByName(subjectName);
+    }
+
     @GetMapping("/list")
     public Page<Subject> list(Pageable pageable) {
         return subjectService.findAll(pageable);
