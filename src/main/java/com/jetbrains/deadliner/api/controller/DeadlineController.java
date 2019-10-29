@@ -17,15 +17,15 @@ import java.util.UUID;
 @RequestMapping("/  deadlines")
 public class DeadlineController {
 
-    private final DeadlineMapper deadlineMapper;
+//    private final DeadlineMapper deadlineMapper;
     private final DeadlineService deadlineService;
     private final DeadlineCreateAction deadlineCreateAction;
 
     @Autowired
-    public DeadlineController(DeadlineMapper deadlineMapper,
+    public DeadlineController(//DeadlineMapper deadlineMapper,
                               DeadlineService deadlineService,
                               DeadlineCreateAction deadlineCreateAction) {
-        this.deadlineMapper = deadlineMapper;
+//        this.deadlineMapper = deadlineMapper;
         this.deadlineService = deadlineService;
         this.deadlineCreateAction = deadlineCreateAction;
     }
@@ -51,9 +51,9 @@ public class DeadlineController {
 
     @ApiOperation("Получить список дедлайнов")
     @GetMapping("/list")
-    public Page<DeadlineDto> list(Pageable pageable) {
-        return deadlineService.findAll(pageable).map(deadlineMapper::toDeadlineDto);
-//        return deadlineService.findAll(pageable);
+    public Page<Deadline> list(Pageable pageable) {
+//        return deadlineService.findAll(pageable).map(deadlineMapper::toDeadlineDto);
+        return deadlineService.findAll(pageable);
     }
 
     @ApiOperation("Удалить дедлайн по идентификатору")
@@ -61,14 +61,4 @@ public class DeadlineController {
     public String delete(@PathVariable("id") UUID deadlineId) {
         return deadlineService.delete(deadlineId);
     }
-
-
-//    @GetMapping("list")
-//    public CollectionDTO<ReportDto> list(@RequestParam(required = false) String formId) {
-//        return MapperUtils.getCollectionMapper(reportMapper::toDto)
-//                          .compose(reportService::list)
-//                          .apply(ListReportArgument.builder()
-//                                                   .formId(formId)
-//                                                   .build());
-//    }
 }

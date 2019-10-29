@@ -28,7 +28,7 @@ public class DeadlineCreateAction {
                         .description(deadlineDto.getDescription())
                         .dateTimeStart(deadlineDto.getDateTimeStart())
                         .dateTimeFinish(deadlineDto.getDateTimeFinish())
-                        .subject(subjectService.getByName(deadlineDto.getSubjectName()))
+//                        .subject(subjectService.getByName(deadlineDto.getSubjectName()))
                         .build());
     }
 }

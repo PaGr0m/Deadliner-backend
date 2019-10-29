@@ -32,10 +32,10 @@ public class Deadline {
     @Column(name = "date_time_finish")
     private LocalDateTime dateTimeFinish;
 
-//    @Column(name = "subject")
-//    private String subjectName;
+    @Column(name = "subject")
+    private String subject;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "subject_id", referencedColumnName = "id", nullable = false)
-    private Subject subject;
+//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name = "subject_id", referencedColumnName = "id", nullable = false)
+//    private Subject subject;
 }
