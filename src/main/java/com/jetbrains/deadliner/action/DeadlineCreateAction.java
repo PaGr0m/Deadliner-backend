@@ -1,6 +1,6 @@
 package com.jetbrains.deadliner.action;
 
-import com.jetbrains.deadliner.api.dto.DeadlineCreateDto;
+import com.jetbrains.deadliner.api.dto.DeadlineDto;
 import com.jetbrains.deadliner.model.Deadline;
 import com.jetbrains.deadliner.service.DeadlineService;
 import com.jetbrains.deadliner.service.SubjectService;
@@ -21,14 +21,14 @@ public class DeadlineCreateAction {
     }
 
     @Transactional
-    public Deadline create(DeadlineCreateDto deadlineCreateDto) {
+    public Deadline create(DeadlineDto deadlineDto) {
         return deadlineService.create(
                 Deadline.builder()
-                        .name(deadlineCreateDto.getName())
-                        .description(deadlineCreateDto.getDescription())
-                        .dateTimeStart(deadlineCreateDto.getDateTimeStart())
-                        .dateTimeFinish(deadlineCreateDto.getDateTimeFinish())
-                        .subject(subjectService.getByName(deadlineCreateDto.getSubjectName()))
+                        .name(deadlineDto.getName())
+                        .description(deadlineDto.getDescription())
+                        .dateTimeStart(deadlineDto.getDateTimeStart())
+                        .dateTimeFinish(deadlineDto.getDateTimeFinish())
+//                        .subject(subjectService.getByName(deadlineDto.getSubjectName()))
                         .build());
     }
 }
