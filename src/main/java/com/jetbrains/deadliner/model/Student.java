@@ -1,10 +1,5 @@
 package com.jetbrains.deadliner.model;
 
-import lombok.*;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 //@Entity
 //@Setter
 //@Getter
