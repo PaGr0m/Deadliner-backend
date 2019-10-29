@@ -1,5 +1,7 @@
 package com.jetbrains.deadliner.api.controller;
 
+import com.jetbrains.deadliner.action.DeadlineCreateAction;
+import com.jetbrains.deadliner.api.dto.DeadlineCreateDto;
 import com.jetbrains.deadliner.model.Deadline;
 import com.jetbrains.deadliner.service.DeadlineService;
 import io.swagger.annotations.ApiOperation;
@@ -15,10 +17,12 @@ import java.util.UUID;
 public class DeadlineController {
 
     private final DeadlineService deadlineService;
+    private final DeadlineCreateAction deadlineCreateAction;
 
     @Autowired
-    public DeadlineController(DeadlineService deadlineService) {
+    public DeadlineController(DeadlineService deadlineService, DeadlineCreateAction deadlineCreateAction) {
         this.deadlineService = deadlineService;
+        this.deadlineCreateAction = deadlineCreateAction;
     }
 
     // TODO: убрать "привет мир"
@@ -30,8 +34,8 @@ public class DeadlineController {
 
     @ApiOperation("Создать дедлайн")
     @PostMapping("/create")
-    public Deadline create(@RequestBody Deadline deadline) {
-        return deadlineService.create(deadline);
+    public Deadline create(@RequestBody DeadlineCreateDto deadlineCreateDto) {
+        return deadlineCreateAction.create(deadlineCreateDto);
     }
 
     @ApiOperation("Получить дедлайн по идентификатору")

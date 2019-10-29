@@ -34,7 +34,7 @@ public class SubjectController {
     }
 
     @ApiOperation("Получить предмет по названию")
-    @GetMapping("/{subjectName}")
+    @GetMapping("/name/{subjectName}")
     public Subject getByName(@PathVariable("subjectName") String subjectName) {
         return subjectService.getByName(subjectName);
     }

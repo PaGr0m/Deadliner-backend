@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -31,6 +32,7 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Subject getExist(UUID subjectId) {
         Optional<Subject> subject = subjectRepository.findById(subjectId);
 
@@ -41,11 +43,18 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Subject getByName(String subjectName) {
-        return subjectRepository.getByName(subjectName);
+        Optional<Subject> subject = subjectRepository.getByName(subjectName);
+
+        if (subject.isPresent())
+            return subject.get();
+        else
+            throw new EntityNotFoundException(Subject.class, "Subject not found");
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<Subject> findAll(Pageable pageable) {
         return subjectRepository.findAll(pageable);
     }
