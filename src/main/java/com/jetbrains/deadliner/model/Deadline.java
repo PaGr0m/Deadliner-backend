@@ -1,6 +1,8 @@
 package com.jetbrains.deadliner.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -26,9 +28,13 @@ public class Deadline {
     @Column(name = "description")
     private String description;
 
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+//    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "date_time_start")
     private LocalDateTime dateTimeStart;
 
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+//    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "date_time_finish")
     private LocalDateTime dateTimeFinish;
 
