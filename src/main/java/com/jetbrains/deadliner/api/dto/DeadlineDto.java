@@ -11,7 +11,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class DeadlineCreateDto {
+public class DeadlineDto {
 
     @NotNull
     private UUID id;

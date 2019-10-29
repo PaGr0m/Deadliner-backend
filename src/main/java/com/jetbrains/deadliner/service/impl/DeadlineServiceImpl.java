@@ -31,7 +31,8 @@ public class DeadlineServiceImpl implements DeadlineService {
                                                .description(deadline.getDescription())
                                                .dateTimeStart(deadline.getDateTimeStart())
                                                .dateTimeFinish(deadline.getDateTimeFinish())
-                                               .subject(deadline.getSubject())
+                                               .subjectName(deadline.getSubjectName())
+//                                               .subject(deadline.getSubject())
                                                .build());
     }
 
