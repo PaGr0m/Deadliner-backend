@@ -37,10 +37,16 @@ public class DeadlineController {
         return "Hello world";
     }
 
+//    @ApiOperation("Создать дедлайн")
+//    @PostMapping("/create")
+//    public Deadline create(@RequestBody DeadlineDto deadlineDto) {
+//        return deadlineCreateAction.create(deadlineDto);
+//    }
+
     @ApiOperation("Создать дедлайн")
     @PostMapping("/create")
-    public Deadline create(@RequestBody DeadlineDto deadlineDto) {
-        return deadlineCreateAction.create(deadlineDto);
+    public Deadline create(@RequestBody Deadline deadline) {
+        return deadlineService.create(deadline);
     }
 
     @ApiOperation("Получить дедлайн по идентификатору")
