@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/  deadlines")
+@RequestMapping("/deadlines")
 public class DeadlineController {
 
 //    private final DeadlineMapper deadlineMapper;
