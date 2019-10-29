@@ -51,7 +51,7 @@ public class DeadlineController {
 
     @ApiOperation("Получить список дедлайнов")
     @GetMapping("/list")
-    public Page<Deadline> list(Pageable pageable) {
+    public Page<DeadlineDto> list(Pageable pageable) {
         return deadlineService.findAll(pageable).map(deadlineMapper::toDeadlineDto);
 //        return deadlineService.findAll(pageable);
     }
