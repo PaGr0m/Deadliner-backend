@@ -9,9 +9,9 @@ import org.mapstruct.Mappings;
 @Mapper
 public interface DeadlineMapper {
 
-    @Mappings({
-        @Mapping(source = "deadline.id", target = "id"),
-        @Mapping(source = "subject.name", target = "subjectName"),
-    })
-    DeadlineDto toDeadlineDto(Deadline deadline);
+//    @Mappings({
+//        @Mapping(source = "deadline.id", target = "id"),
+//        @Mapping(source = "subject.name", target = "subjectName"),
+//    })
+//    DeadlineDto toDeadlineDto(Deadline deadline);
 }
